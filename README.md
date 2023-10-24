@@ -63,6 +63,18 @@
 ### Virtual Networks (Equivalent to VPCs on AWS)
 
 1) In the search bar at the top, type in Virtual Network.
-
+2) Click on "Create".
+3) Under "Basics":
+- Choose the `tech254` Resource group.
+- Give the Virtual network a name, e.g. `tech254-alex-app-db-vnet`
+- Make sure the Region is `UK South`.
+4) Under "Security":
+- Don't enable any of the tickboxes for Bastion, Firewall and Network protection.
+- These all have extremely high monthly subscription costs so never select them for training purposes.
+5) Under IP addresses:
+- Change the Vnet Address space to `10.0.0.0/16`
+- Alter the default subnet to be called `public-subnet` with the CIDR block 10.0.2.0/24.
+- Add another subnet to be called `private subnet` with the CIDR block 10.0.3.0/24.
+6) Click `Review + Create`
 
 ### Virtual Machines
