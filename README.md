@@ -30,7 +30,7 @@
 
 ### Azure Resource Structure - How are Resources organised
 
-1) Management Groups - Can have up to 6 levels (Scope - Policies and Permissions) - Used to mamage large numbers of subscriptions.
+1) Management Groups - Can have up to 6 levels (Scope - Policies and Permissions) - Used to manage large numbers of subscriptions.
 2) Subscriptions - (Scope - Policies and Permissions).
 3) Resource Groups - (Scope - Policies and Permissions).
 4) Resources - All resources (VNets, VMs, SSH keys) need to be allocated to a Resource Group.
@@ -45,6 +45,8 @@
 ## Setting up Infrastructure on Azure
 
 ### Virtual Network Diagram
+
+![Alt text](<images/24. Azure architecture diagram.jpg>)
 
 ### Set up SSH key connection
 
