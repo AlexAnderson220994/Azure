@@ -1,4 +1,4 @@
-# Azure
+# Azure - Research & Infrastructure setup
 
 ## What is Azure?
 
@@ -126,4 +126,38 @@
 
 ### SSH Connection to Instances
 
+To connect to your Virtual Machine:
+
+1) Go to the overview page of the VM you want to Connect to.
+2) Click the "Connect" button.
+![Alt text](<images/21. ssh connect.jpg>)
+3) Choose "Native SSH" from the two options on screen.
+![Alt text](<images/22. native ssh.jpg>)
+4) On the right hand pane that comes up, go to Point 3 and add the path to your Azure Private key on your computer system.
+5) Copy the command that gets populated into GitBash from Home.
+![Alt text](<images/23. key connect.jpg>)
+
 ### Resolving blockers
+
+#### 1) Ubuntu Pro 18.04 lts image not populating on VM creation page
+
+There's a bug which stops the Ubuntu Pro 18.04 lts image from populating when you try and make a VM. To resolve this:
+1) Go to the "Resources" page from the Azure Console.
+2) Make sure you're on the `tech254` resources page.
+3) Click the `Create` button.
+4) Search for the Ubuntu Pro 18.04 lts image.
+5) Select that image and you immediately get taken to the VM creation page with the image and resource group pre-filled.
+
+#### 2) `sudo apt upgrade -y` command requiring user input in User Data
+
+User data for updating and upgrading the OS doesn't work on the same script used for AWS. User input is required on the upgrade area. To bypass this, run the following command:
+````
+sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+````
+OR
+````
+sudo apt update
+````
+````
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+````
