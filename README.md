@@ -46,7 +46,7 @@
 
 ### Virtual Network Diagram
 
-![Alt text](<images/24. Azure architecture diagram.jpg>)
+![Alt text](<images/25. diagram v2.jpg>)
 
 ### Set up SSH key connection
 
