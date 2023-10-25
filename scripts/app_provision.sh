@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# update
-sudo apt update -y
-
-# upgrade
-sudo apt upgrade -y
+# update and upgrade with user input bypass
+sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 # install nginx
 sudo apt install nginx -y

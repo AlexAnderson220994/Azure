@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sudo apt update
-
-sudo apt upgrade -y
+# update and upgrade with user input bypass
+sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 # Install the version of MongoDB (3.2) required using the following command:
 

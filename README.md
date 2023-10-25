@@ -62,19 +62,68 @@
 
 ### Virtual Networks (Equivalent to VPCs on AWS)
 
-1) In the search bar at the top, type in Virtual Network.
+1) In the search bar at the top, type in Virtual Network (or select the Virtual Network icon if its there).
+![Alt text](<images/4. virtual network.jpg>)
 2) Click on "Create".
+![Alt text](<images/6. create vnet.jpg>)
 3) Under "Basics":
 - Choose the `tech254` Resource group.
 - Give the Virtual network a name, e.g. `tech254-alex-app-db-vnet`
 - Make sure the Region is `UK South`.
+![Alt text](<images/7. naming and resource.jpg>)
 4) Under "Security":
 - Don't enable any of the tickboxes for Bastion, Firewall and Network protection.
 - These all have extremely high monthly subscription costs so never select them for training purposes.
 5) Under IP addresses:
 - Change the Vnet Address space to `10.0.0.0/16`
+![Alt text](<images/8. cidr and subnets.jpg>)
 - Alter the default subnet to be called `public-subnet` with the CIDR block 10.0.2.0/24.
+![Alt text](<images/9. editing subnets.jpg>)
 - Add another subnet to be called `private subnet` with the CIDR block 10.0.3.0/24.
-6) Click `Review + Create`
+6) In the "Tags" tab, add an Owner tag with your name associated.
+![Alt text](<images/10. tags.jpg>)
+7) Click `Review + Create`.
+![Alt text](<images/11. review and create.jpg>)
+8) Make sure all the settings are as they should be and click `Create`.
+![Alt text](<images/12. review page.jpg>)
 
 ### Virtual Machines
+
+1) In the search bar at the top, type in Virtual Machine (or select the Virtual Machine icon if its there).
+![Alt text](<images/5. virtual machine.jpg>)
+2) Click on "Create" then "Azure Virtual Machine".
+![Alt text](<images/14. create azure vm.jpg>)
+3) On the "Basics" tab, add the following:
+- Resource Group - `tech254`
+- Name the VM, e.g. `tech254-alex-test-vm`
+- Choose `UK South` as the region
+- For "Secuity Type" choose `Standard`
+- For "Image" choose `Ubuntu Pro 18.04 lts` (see blockers section if this won't work)
+- For "Size" choose `Standard B1s`
+- Change username to `adminuser` from azureuser so it's more unique and less hackable
+- Choose your Azure Public Key already stored on the Azure console
+- Choose the appropriate Inbound Port rules depending on instance type (SSH definitely required)
+![Alt text](<images/15. basics part 1.jpg>)
+![Alt text](<images/16. basics part 2.jpg>)
+4) On the "Disks" tab:
+- Change "OS Disk Type" from Premium SSD to `Standard SSD`
+![Alt text](<images/17. disks.jpg>)
+5) On the "Networking" tab:
+- Choose the Virtual Network you made earlier e.g. `tech254-alex-app-db-vnet`
+- Choose the subnet you need (public for app, private for db)
+- Choose the Public IP if its the app VM
+- Edit additional inbound security rules with "Advanced" if required
+- Select the tickbox `Delete public IP and NIC when VM is deleted` to avoid needing to manually delete this when terminating a VM
+![Alt text](<images/18. networking.jpg>)
+6) On the "Advanced" tab:
+- Scroll down to User data and tick the box
+- Insert your bash script for making either the app or db VM
+![Alt text](<images/19. user data.jpg>)
+7) Add the tags.
+![Alt text](<images/10. tags.jpg>)
+8) Check over the review page to make sure everything is correct then click on `Create`.
+![Alt text](<images/20. create.jpg>)
+
+### SSH Connection to Instances
+
+### Resolving blockers
