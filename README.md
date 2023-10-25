@@ -7,6 +7,12 @@
 - Provides scalability, reliability and flexibility.
 - Users only pay for the services they use.
 
+### Market share
+
+- As of 2023, Azure is the second-largest Cloud provider.
+- The market share of Azure is 26%.
+- Azures share has been steadily rising.
+
 ### Services offered
 
 - **Virtual Machines (VMs)** - Allows users to create and manage virtual machines in the cloud
@@ -22,18 +28,12 @@
 - **Azure AI and Machine Learning** - Offers a range of services for artificial intelligence and machine learning, including Azure Machine Learning and cognitive services
 - **Azure IoT (Internet of Things)** - A set of services for building and managing IoT solutions
 
-## Azure Structure
+### Azure Resource Structure - How are Resources organised
 
-- All Azure resources have to be associated to a Resource Group.
-
-### Azure Resource Structure
-
-- Management Groups - Can have up to 6 levels (Scope - Policies and Permissions) - Used to mamage large numbers of subscriptions.
-- Subscriptions - (Scope - Policies and Permissions)
-- Resource Groups - (Scope - Policies and Permissions)
-- Resources
-
-### Azure VM Structure
+1) Management Groups - Can have up to 6 levels (Scope - Policies and Permissions) - Used to mamage large numbers of subscriptions.
+2) Subscriptions - (Scope - Policies and Permissions).
+3) Resource Groups - (Scope - Policies and Permissions).
+4) Resources - All resources (VNets, VMs, SSH keys) need to be allocated to a Resource Group.
 
 ## Differences between Azure and AWS
 
@@ -43,6 +43,8 @@
 - Azure - Availability Zones - Maximum of 3
 
 ## Setting up Infrastructure on Azure
+
+### Virtual Network Diagram
 
 ### Set up SSH key connection
 
