@@ -42,6 +42,10 @@
 - AWS - Availability Zones in a region not limited to 3
 - Azure - Availability Zones - Maximum of 3
 
+#### Networking
+
+
+
 ## Setting up Infrastructure on Azure
 
 ### Virtual Network Diagram
@@ -140,6 +144,29 @@ To connect to your Virtual Machine:
 4) On the right hand pane that comes up, go to Point 3 and add the path to your Azure Private key on your computer system.
 5) Copy the command that gets populated into GitBash from Home.
 ![Alt text](<images/23. key connect.jpg>)
+
+### Updating Security Rules
+
+1) Go to the overview page for the VM you want to alter the rules of.
+2) On the left hand pane in the VM window, under "settings", click on the "Networking" tab.
+3) The inbound security rules should be visible here.
+4) For "Priority", the lower the number means the higher the priority (e.g. 300 is higher priority than 400).
+5) Higher priority rules trump lower priority rules even if they allow for the opposite rule.
+6) Clicking on an existing rule can allow you to change the settings.
+7) Click on "Add inbound port rule" to add a new rule (just make sure you give it the correct priority).
+
+### Deleting a Public IP address from the DB VM
+
+1) Go to the overview page for the VM you want to delete the Public IP address for.
+2) Click on the public IP address on the overview page.
+![Alt text](<images/27. IP address.jpg>)
+3) This takes you to the configuration page for that IP address.
+4) On the left hand pane of that IP address, click overview.
+![Alt text](<images/28. overview.jpg>)
+5) Click on "Dissociate".
+![Alt text](<images/29. dissociate.jpg>)
+6) Click on "Delete".
+![Alt text](<images/30. delete.jpg>)
 
 ### Resolving blockers
 
