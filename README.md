@@ -42,6 +42,14 @@
 - AWS - Availability Zones in a region not limited to 3
 - Azure - Availability Zones - Maximum of 3
 
+#### Security Groups
+
+
+#### Storage
+
+- AWS uses Buckets
+- Azure uses containers
+
 #### Networking
 
 
@@ -168,6 +176,30 @@ To connect to your Virtual Machine:
 6) Click on "Delete".
 ![Alt text](<images/30. delete.jpg>)
 
+## Installing Azure CLI
+
+- Go to the following website for instructions on how to install Azure CLI
+````
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+````
+
+1) Connect to your Virtual Machine with SSH.
+2) In the GitBash terminal, run the following command:
+````
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+````
+3) Run the Azure login command below:
+````
+az login
+````
+4) The AZ login command will bring up yellow text with a URL and a login code.
+5) Copy and paste the URL into a web browser.
+6) Input the login code when prompted.
+7) Choose your microsoft account associated with the resource group.
+8) The webpage will show the below message:
+![Alt text](<images/31. AZ CLI.jpg>)
+9) When you return to GitBash you will see all the login details like ID and email address to show the login was successful.
+
 ### Resolving blockers
 
 #### 1) Ubuntu Pro 18.04 lts image not populating on VM creation page
@@ -192,3 +224,38 @@ sudo apt update
 ````
 sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 ````
+
+#### 3) App repo location with User Data
+
+- Using User Data to clone the App repo will by default do all this in the root directory.
+- When you connect to your instance, you connect as "adminuser".
+- Use the following command to get to your root directory:
+````
+cd /
+````
+- In this directory you can now navigate to the app folder
+
+#### 4) Killing PM2
+
+- PM2 runs in the root directory using User Data.
+- First navigate to the root directory.
+- Do `pm2 list` to list all pm2 processes (although this will show no processes)
+````
+pm2 list
+````
+- The app is already running on Port 3000 and only one process can run there so attempting to run the app again will fail.
+- Find out the Process ID (PID) of the process you want to kill.
+- To check the Node processes running:
+````
+ps aux | grep node
+````
+- Because PM2 is still running, killing a node process will instantly run another one so you need to kill the PM2 process instead.
+- To check the PM2 processes running:
+````
+ps aux | grep pm2
+````
+- To kill a process, do the following command
+````
+sudo kill <PID number>
+````
+- Check the IP address to see if the app is still running.
