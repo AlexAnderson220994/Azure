@@ -71,6 +71,7 @@ sudo nano <filename.txt>
 3) Renaming a file.
 ````
 mv <current_filename.txt> <new_filename.txt>
+````
 
 ### Downloading files from the internet
 
