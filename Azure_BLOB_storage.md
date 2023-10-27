@@ -58,16 +58,19 @@ az storage blob upload --account-name tech254alexstorage --container-name testco
 az storage container set-permission --name <container_name> --public-access blob --account-name <storage_account_name> --auth-mode login
 ````
 
-### Creating files.
+### Creating and editing files.
 
 1) Making a blank file.
 ````
-touch filename.txt
+touch <filename.txt>
 ````
 2) Editing a file
 ````
-sudo nano filename.txt
+sudo nano <filename.txt>
 ````
+3) Renaming a file.
+````
+mv <current_filename.txt> <new_filename.txt>
 
 ### Downloading files from the internet
 
