@@ -20,3 +20,55 @@
 - Locally redundant storage (LRS) - copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but isn't recommended for applications requiring high availability or durability.
 - Zone-redundant storage (ZRS) - copies your data synchronously across three Azure availability zones in the primary region.
 
+## Creating BLOB storage on Azure
+
+### Useful websites
+
+- Installing Azure CLI
+````
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+````
+- Creating BLOB Storage
+````
+https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli
+````
+- Changing container permissions
+````
+https://learn.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-set-permission
+````
+
+### Making and Uploading
+
+Log into the Azure CLI on GitBash.
+
+1) Create storage account.
+````
+az storage account create --name tech254alexstorage --resource-group tech254 --location uksouth --sku Standard_ZRS
+````
+2) Create container.
+````
+az storage container create --name testcontainer --account-name tech254alexstorage --auth-mode login
+````
+3) Uploading to container.
+````
+az storage blob upload --account-name tech254alexstorage --container-name testcontainer --name newtest.txt --file test.txt --auth-mode login
+````
+4) Changing container permissions.
+````
+az storage container set-permission --name <container_name> --public-access blob --account-name <storage_account_name> --auth-mode login
+````
+
+### Downloading files from the internet
+
+1) Downloading and renaming a picture
+````
+curl -o <rename_pic.jpg> <picture_URL.jpg>
+````
+
+### Editing index.ejs
+
+1) Command for adding image URL.
+````
+sed -i 's|</h2>|<img src="image_URL.jpg">|' views/index.ejs
+````
+
