@@ -69,6 +69,6 @@ curl -o <rename_pic.jpg> <picture_URL.jpg>
 
 1) Command for adding image URL.
 ````
-sed -i 's|</h2>|<img src="image_URL.jpg">|' views/index.ejs
+sed -i 's|</h2>\n|<img src="image_URL.jpg">|' views/index.ejs
 ````
 
